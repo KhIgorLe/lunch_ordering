@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  variables:
+    sql_mode: TRADITIONAL
+
+development:
+  <<: *default
+  database: lunch_ordering_development
+
+test:
+  <<: *default
+  database: lunch_ordering_test
+
+production:
+  <<: *default
+  database: lunch_ordering_production
+  username: lunch_ordering
+  password: <%= ENV['LUNCH_ORDERING_DATABASE_PASSWORD'] %>
