@@ -5,8 +5,7 @@ install:
   — bundle install
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
-  - bundle exec rspec spec/
-before_install:
-  - mysql -e 'CREATE DATABASE lunch_ordering_test;'
+  - bundle exec rspec
 before_script:
+  - mysql -e 'CREATE DATABASE lunch_ordering_test;'
   - cp config/database.travis.yml config/database.yml
